@@ -24,5 +24,6 @@ module.exports = defineConfig({
   e2e: {
     specPattern: "**/*.feature",
     setupNodeEvents,
+    defaultCommandTimeout: 10000,
   },
 });
