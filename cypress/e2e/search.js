@@ -10,30 +10,25 @@ Given("a user is on the Google Maps page", () => {
   cookiesPage.denyButton();
 });
 
-When("the user enters “Paris” in the search box", () => {
-  mapSearchPage.searchInput("Paris");
+When("the user enters {string} in the search box", (searchPhrase) => {
+  mapSearchPage.searchInput(searchPhrase);
 });
 
 When("clicks “Search”", () => {
   mapSearchPage.searchButton();
 });
 
-Then(`the left panel should have "Paris" as the headline text`, () => {
-  mapSearchPage.h1Text().should("contain", "Paris");
-});
-
-When("the user enters “London” in the search box", () => {
-  mapSearchPage.searchInput("London");
-});
-
-Then(`the left panel should have "London" as the headline text`, () => {
-  mapSearchPage.h1Text().should("contain", "London");
-});
+Then(
+  `the left panel should have {string} as the headline text`,
+  (searchPhrase) => {
+    mapSearchPage.h1Text().should("contain", searchPhrase);
+  }
+);
 
 When("the user clicks the “Directions” button", () => {
   mapSearchPage.directionsButton();
 });
 
-Then(`the destination field should contain "London"`, () => {
-  mapSearchPage.destinationInputText().should("contain", ["London"]);
+Then(`the destination field should contain {string}`, (searchPhrase) => {
+  mapSearchPage.destinationInputText().should("contain", searchPhrase);
 });
