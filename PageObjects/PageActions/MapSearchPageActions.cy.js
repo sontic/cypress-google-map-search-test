@@ -29,4 +29,10 @@ export class MapSearchPageActions {
       .last()
       .invoke("attr", "aria-label");
   }
+
+  unsuccessfulSearchMessage() {
+    return cy
+      .get(mapSearchLocators.UNSUCCESFUL_SEARCH_MESSAGE, { timeout: 20000 })
+      .invoke("text");
+  }
 }

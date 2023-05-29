@@ -32,3 +32,7 @@ When("the user clicks the “Directions” button", () => {
 Then(`the destination field should contain {string}`, (searchPhrase) => {
   mapSearchPage.destinationInputText().should("contain", searchPhrase);
 });
+
+Then(`the left panel should contain {string} text`, (searchPhrase) => {
+  mapSearchPage.unsuccessfulSearchMessage().should("contain", searchPhrase);
+});

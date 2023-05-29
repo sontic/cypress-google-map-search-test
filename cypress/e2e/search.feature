@@ -24,3 +24,12 @@ Feature: Google Map Search
         Examples:
             | searchPhrase |
             | London       |
+
+    Scenario: Unsuccessful Search:
+        When the user enters "<searchPhrase>" in the search box
+        And clicks “Search”
+        Then the left panel should contain "Google Maps can't find <searchPhrase>" text
+
+        Examples:
+            | searchPhrase |
+            | !@#$%^&*     |
